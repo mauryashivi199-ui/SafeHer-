@@ -1,3 +1,4 @@
+localStorage.clear();
 // CONTACTS ARRAY
 let contacts = [];
 
@@ -181,4 +182,5 @@ window.onload = function() {
     }
 
 }
+
 
