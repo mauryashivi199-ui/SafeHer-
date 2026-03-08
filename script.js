@@ -6,28 +6,31 @@ const ACCESS_KEY = "6d36ba69-7d95-4d9b-8af4-48cd3fc29156";
 
 // ADD CONTACT FUNCTION
 function addContact() {
-    const name = document.getElementById('contactName').value;
-    const number = document.getElementById('contactNumber').value;
 
-   if (!name || !number) {
-        alert('Please fill both fields!');
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const relation = document.getElementById('contactRelation').value;
+
+    if (!name || !email) {
+        alert('Please fill all fields!');
         return;
     }
 
-    if (!number.includes('@')) {
+    if (!email.includes('@')) {
         alert('Please enter valid email!');
         return;
     }
 
-    contacts.push({ name, number });
+    contacts.push({ name, email, relation });
 
     document.getElementById('contactName').value = '';
-    document.getElementById('contactNumber').value = '';
+    document.getElementById('contactEmail').value = '';
+    document.getElementById('contactRelation').value = '';
 
     displayContacts();
+
     localStorage.setItem('safeher_contacts', JSON.stringify(contacts));
 }
-
 // DISPLAY CONTACTS
 function displayContacts() {
     const list = document.getElementById('contactsList');
@@ -169,4 +172,5 @@ window.onload = function() {
         document.body.classList.add('light-mode');
         document.querySelector('.theme-btn').innerHTML = '☀️';
     }
+
 }
