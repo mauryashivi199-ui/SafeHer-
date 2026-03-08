@@ -80,10 +80,17 @@ function triggerSOS() {
             function(position) {
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
-                const locationLink = `https://maps.google.com/?q=${lat},${lon}`;
+                const mapLink = `https://maps.google.com/?q=${lat},${lon}`;
                 const time = new Date().toLocaleTimeString();
+                
 
-                sendEmergencyEmail(lat, lon, locationLink, time);
+            document.getElementById("locText").innerHTML =
+            "📍 Location: <a href='" + mapLink + "' target='_blank'>Open in Maps</a>";
+
+            alert("SOS Alert Sent! Your location is ready to share.");
+
+
+                sendEmergencyEmail(lat, lon,  mapLink, time);
             },
             function(error) {
                 alert('⚠️ Location access denied!\nPlease enable location!');
@@ -174,3 +181,4 @@ window.onload = function() {
     }
 
 }
+
