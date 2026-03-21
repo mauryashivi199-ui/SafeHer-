@@ -464,3 +464,89 @@ footer strong { color: var(--red-light); }
   .form-group { min-width: unset; }
   .h-left small { display: none; }
 }
+/* ===================== GLOBAL SMOOTHNESS ===================== */
+* {
+  transition: all 0.25s ease-in-out;
+}
+
+/* ===================== GLASS EFFECT ===================== */
+nav, .contact-card, .safe-card, .tip-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ===================== GRADIENT HERO TEXT ===================== */
+.hero-text h2 {
+  background: linear-gradient(90deg, #ff5568, #dc3246);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===================== SOS FLOATING ===================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.sos-btn {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ===================== SOS RIPPLE ===================== */
+.sos-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+.sos-btn:active::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* ===================== SHAKE EFFECT (EMERGENCY FEEL) ===================== */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+.sos-btn:active {
+  animation: shake 0.3s;
+}
+
+/* ===================== CARD HOVER LIFT ===================== */
+.contact-card:hover,
+.safe-card:hover,
+.tip-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ===================== SCROLLBAR ===================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 10px;
+}
+
+/* ===================== BACKGROUND GLOW ===================== */
+body::before {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(220,50,70,0.15), transparent);
+  top: -100px;
+  left: -100px;
+  z-index: -1;
+}
