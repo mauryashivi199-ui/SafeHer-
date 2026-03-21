@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="SafeHer - Women safety app with SOS alert, live location sharing, and emergency contacts.">
+
     <title>SafeHer - Your Safety Partner</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/483/483356.png">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,156 +19,189 @@
     <!-- NAVBAR -->
     <nav>
         <h1>🛡️ SafeHer</h1>
-        <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+
+        <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle Theme">
+            🌙
+        </button>
     </nav>
 
-    <!-- MAIN SECTION -->
     <main>
 
-        <!-- HERO TEXT -->
-        <div class="hero-text">
+        <!-- HERO -->
+        <section class="hero-text">
             <span class="badge">🚨 24/7 Emergency Ready</span>
-            <h2>Your Safety is Our <em>Top Priority</em></h2>
-            <p>One tap can save your life. Share your location instantly with trusted contacts.</p>
-        </div>
 
-        <!-- SOS BUTTON -->
-        <div class="sos-container">
+            <h2>Your Safety is Our <em>Top Priority</em></h2>
+
+            <p>
+                One tap can save your life. Instantly share your live location
+                with trusted contacts during emergencies.
+            </p>
+        </section>
+
+        <!-- SOS -->
+        <section class="sos-container">
+
             <div class="sos-rings">
                 <div class="ring"></div>
                 <div class="ring"></div>
                 <div class="ring"></div>
-                <button class="sos-btn" onclick="triggerSOS()" id="sosBtn">
+
+                <button class="sos-btn"
+                        onclick="triggerSOS()"
+                        id="sosBtn"
+                        aria-label="Trigger SOS Emergency">
                     <span class="sos-main">SOS</span>
                     <span class="sos-sub">TAP NOW</span>
                 </button>
             </div>
-            <p class="sos-hint">Press in Emergency — sends your live location</p>
-        </div>
+
+            <p class="sos-hint">
+                Press only in emergency — sends your live location instantly
+            </p>
+        </section>
 
         <!-- SOS STATUS -->
-        <div class="sos-status" id="sosStatus">
+        <section class="sos-status" id="sosStatus" role="alert">
             <span>🚨</span>
             <div>
                 <strong>SOS Alert Sent!</strong>
-                <p>Your contacts are being notified.</p>
+                <p>Your emergency contacts are being notified.</p>
                 <p class="loc-text" id="locText">Fetching location...</p>
             </div>
-        </div>
+        </section>
 
-        <!-- ========== HELPLINES ========== -->
+        <!-- HELPLINES -->
         <section id="helplines">
             <h2>Emergency <em>Helplines</em></h2>
             <p class="sub">One tap call — available 24/7 across India</p>
+
             <div class="helplines-list">
+
                 <div class="h-row">
-                    <div class="h-left"><span>👩</span><div><b>Women Helpline</b><small>National women's emergency</small></div></div>
-                    <a href="tel:1091" class="call-btn">📞 1091</a>
+                    <div class="h-left">
+                        <span>👩</span>
+                        <div>
+                            <b>Women Helpline</b>
+                            <small>National women's emergency</small>
+                        </div>
+                    </div>
+                    <a href="tel:1091" class="call-btn">📞 Call</a>
                 </div>
+
                 <div class="h-row">
-                    <div class="h-left"><span>🚔</span><div><b>Police</b><small>Immediate police assistance</small></div></div>
-                    <a href="tel:100" class="call-btn">📞 100</a>
+                    <div class="h-left">
+                        <span>🚔</span>
+                        <div>
+                            <b>Police</b>
+                            <small>Immediate police assistance</small>
+                        </div>
+                    </div>
+                    <a href="tel:100" class="call-btn">📞 Call</a>
                 </div>
+
                 <div class="h-row">
-                    <div class="h-left"><span>🚑</span><div><b>Ambulance</b><small>Medical emergency</small></div></div>
-                    <a href="tel:108" class="call-btn">📞 108</a>
+                    <div class="h-left">
+                        <span>🚑</span>
+                        <div>
+                            <b>Ambulance</b>
+                            <small>Medical emergency</small>
+                        </div>
+                    </div>
+                    <a href="tel:108" class="call-btn">📞 Call</a>
                 </div>
+
                 <div class="h-row">
-                    <div class="h-left"><span>🆘</span><div><b>National Emergency</b><small>All-in-one number</small></div></div>
-                    <a href="tel:112" class="call-btn">📞 112</a>
+                    <div class="h-left">
+                        <span>🆘</span>
+                        <div>
+                            <b>National Emergency</b>
+                            <small>All-in-one number</small>
+                        </div>
+                    </div>
+                    <a href="tel:112" class="call-btn">📞 Call</a>
                 </div>
-                <div class="h-row">
-                    <div class="h-left"><span>🏠</span><div><b>Domestic Violence</b><small>Support & shelter</small></div></div>
-                    <a href="tel:181" class="call-btn">📞 181</a>
-                </div>
-                <div class="h-row">
-                    <div class="h-left"><span>🧒</span><div><b>Childline</b><small>Child protection</small></div></div>
-                    <a href="tel:1098" class="call-btn">📞 1098</a>
+
+            </div>
+        </section>
+
+        <!-- CONTACTS -->
+        <section class="family-section" id="contacts">
+            <h2>Add Emergency <em>Contacts</em></h2>
+            <p class="sub">These contacts will receive SOS alerts</p>
+
+            <div id="contactsList"></div>
+
+            <div class="add-form">
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="contactName" placeholder="e.g. Mom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="contactEmail" placeholder="example@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Relation</label>
+                        <input type="text" id="contactRelation" placeholder="Mother" required>
+                    </div>
+
+                    <button onclick="addContact()">Add Contact</button>
+
                 </div>
             </div>
         </section>
 
-        <!-- ========== ADD FAMILY NUMBER ========== -->
-        <div class="family-section" id="contacts">
-            <h2>Add Emergency <em>Contacts</em></h2>
-            <p class="sub">These people are alerted when you press SOS</p>
-
-            <!-- CONTACTS LIST -->
-            <div id="contactsList"></div>
-
-            <!-- FORM -->
-            <div class="add-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" id="contactName" placeholder="e.g. Mom"/>
-                    </div>
-                    <div class="form-group">
-                        <label>EmailID</label>
-                        <input type="email" id="contactEmail" placeholder="e.g. example@gmail.com"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Relation</label>
-                        <input type="text" id="contactRelation" placeholder="e.g. Mother"/>
-                    </div>
-                    <button onclick="addContact()">Add Contact</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========== SAFE PLACES ========== -->
+        <!-- SAFE PLACES -->
         <section id="safe-places">
             <h2>Nearby <em>Safe Places</em></h2>
-            <p class="sub">Know where to go in an emergency</p>
+            <p class="sub">Find safe locations instantly</p>
 
             <div class="location-bar">
                 <span>📍</span>
+
                 <div class="loc-info">
                     <strong id="currentLoc">Location not fetched</strong>
                     <small>Click to detect your live location</small>
                 </div>
+
                 <button class="loc-btn" onclick="getLocation()">Get Location</button>
             </div>
 
             <div class="safe-grid">
+
                 <div class="safe-card">
-                    <div class="safe-top"><span>🚔</span><span class="safe-tag">Safe</span></div>
-                    <h4>Police Station</h4>
-                    <p>Nearest police station near you</p>
-                    <a href="https://maps.google.com/maps?q=police+station+near+me" target="_blank" class="dir-btn">Get Directions →</a>
+                    <h4>🚔 Police Station</h4>
+                    <a href="https://maps.google.com/maps?q=police+station+near+me" target="_blank">Directions →</a>
                 </div>
+
                 <div class="safe-card">
-                    <div class="safe-top"><span>🏥</span><span class="safe-tag">Safe</span></div>
-                    <h4>Hospital</h4>
-                    <p>Nearest hospital near you</p>
-                    <a href="https://maps.google.com/maps?q=hospital+near+me" target="_blank" class="dir-btn">Get Directions →</a>
+                    <h4>🏥 Hospital</h4>
+                    <a href="https://maps.google.com/maps?q=hospital+near+me" target="_blank">Directions →</a>
                 </div>
+
                 <div class="safe-card">
-                    <div class="safe-top"><span>🏪</span><span class="safe-tag">Safe</span></div>
-                    <h4>Public Place</h4>
-                    <p>Mall, Metro, Bus Stand nearby</p>
-                    <a href="https://maps.google.com/maps?q=mall+near+me" target="_blank" class="dir-btn">Get Directions →</a>
+                    <h4>🏪 Public Area</h4>
+                    <a href="https://maps.google.com/maps?q=mall+near+me" target="_blank">Directions →</a>
                 </div>
-                <div class="safe-card">
-                    <div class="safe-top"><span>🏫</span><span class="safe-tag">Safe</span></div>
-                    <h4>Govt. Shelter</h4>
-                    <p>Government office or shelter</p>
-                    <a href="https://maps.google.com/maps?q=government+office+near+me" target="_blank" class="dir-btn">Get Directions →</a>
-                </div>
+
             </div>
         </section>
 
-        <!-- ========== SAFETY TIPS ========== -->
+        <!-- TIPS -->
         <section id="tips">
             <h2>Safety <em>Tips</em></h2>
-            <p class="sub">Stay aware, stay safe — every single day</p>
+            <p class="sub">Stay alert and prepared</p>
+
             <div class="tips-grid">
-                <div class="tip-card"><span class="tip-num">01</span><h4>🌙 Night Travel</h4><p>Always inform someone before traveling at night. Prefer well-lit, busy routes.</p></div>
-                <div class="tip-card"><span class="tip-num">02</span><h4>🚕 Cab Safety</h4><p>Share ride details with a trusted contact. Verify driver's name before boarding.</p></div>
-                <div class="tip-card"><span class="tip-num">03</span><h4>📱 Phone Ready</h4><p>Keep phone charged. Save emergency numbers on speed dial.</p></div>
-                <div class="tip-card"><span class="tip-num">04</span><h4>👀 Stay Alert</h4><p>Trust your instincts. Move to a crowded area if something feels wrong.</p></div>
-                <div class="tip-card"><span class="tip-num">05</span><h4>🔊 Make Noise</h4><p>In danger, shout loudly. A whistle or alarm app can attract attention fast.</p></div>
-                <div class="tip-card"><span class="tip-num">06</span><h4>🏃 Escape Plan</h4><p>Always know the nearest exit. Identify safe buildings in unfamiliar areas.</p></div>
+                <div class="tip-card"><h4>🌙 Night Travel</h4><p>Use safe and crowded routes.</p></div>
+                <div class="tip-card"><h4>🚕 Cab Safety</h4><p>Verify driver before boarding.</p></div>
+                <div class="tip-card"><h4>📱 Phone Ready</h4><p>Keep phone charged.</p></div>
+                <div class="tip-card"><h4>👀 Stay Alert</h4><p>Trust your instincts.</p></div>
             </div>
         </section>
 
@@ -168,8 +209,8 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>🛡️ <strong>SafeHer</strong> — Every woman deserves to feel safe. Built with ❤️</p>
-        <p>In any emergency, call <strong>112</strong></p>
+        <p>🛡️ <strong>SafeHer</strong> — Stay Safe Always</p>
+        <p>Emergency: <strong>112</strong></p>
     </footer>
 
     <!-- TOAST -->
@@ -177,5 +218,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
